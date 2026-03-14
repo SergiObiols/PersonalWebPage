@@ -7,24 +7,44 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="topbar">
-        <div class="datetime">
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="#hero" class="nav-logo"></a>
+                <img src="BrandLogos/SOL DEVXL.png" alt="Logo de SOL DEV" height="32" />
+            </a>
+            <ul class="nav-links">
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#projects">Proyectos</a></li>
+            <li><a href="#about">Sobre mí</a></li>
+            <li><a href="#contact">Contacto</a></li>
+            <li><a href="cv.pdf" download>CV</a></li>
+            </ul>
+        </div>
+         <div class="nav-right">
+            <div class="datetime">
             <span id="date"></span>
             <span id="time"></span>
+            </div>
+            <div class="theme-selector" role="group" aria-label="Selector de tema">
+            <button class="theme-btn" data-theme="light" title="Claro">
+                <img src="ThemeIcons/Light.png" alt="Claro" width="16" height="16" />
+            </button>
+            <button class="theme-btn" data-theme="dark" title="Oscuro">
+                <img src="ThemeIcons/Dark.png" alt="Oscuro" width="16" height="16" />
+            </button>
+            <button class="theme-btn" data-theme="system" title="Sistema">
+                <img src="ThemeIcons/System.png" alt="Sistema" width="16" height="16" />
+            </button>
+            </div>
+            <button class="nav-hamburger" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+            </button>
         </div>
-        <div class="theme-selector" role="group" aria-label="Selector de tema">
-        <button class="theme-btn" data-theme="light" title="Claro">
-            <img src="ThemeIcons/Light.png" alt="Claro" width="16" height="16" />
-        </button>
-        <button class="theme-btn" data-theme="dark" title="Oscuro">
-            <img src="ThemeIcons/Dark.png" alt="Oscuro" width="16" height="16" />
-        </button>
-        <button class="theme-btn" data-theme="system" title="Sistema">
-            <img src="ThemeIcons/System.png" alt="Sistema" width="16" height="16" />
-        </button>
-        </div>
-    </div>
+        </nav>
     <script src="ThemeSelector.js"></script>
     <script src="datetime.js"></script>
+    <script src="navbar.js"></script>
 </body>
 </html>
