@@ -1,24 +1,24 @@
 /* ── Variables ── */
 :root {
-  --bg:                 #ffffff;
-  --text:               #111111;
-  --selector-bg:        #e8e8e8;
-  --btn-color:          #888;
-  --btn-hover-color:    #333;
-  --btn-active-bg:      #ffffff;
-  --btn-active-color:   #111;
-  --btn-active-shadow:  0 1px 3px rgba(0, 0, 0, 0.12);
+  --bg:                #ffffff;
+  --text:              #111111;
+  --selector-bg:       #e8e8e8;
+  --btn-color:         #888;
+  --btn-hover-color:   #333;
+  --btn-active-bg:     #ffffff;
+  --btn-active-color:  #111;
+  --btn-active-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
 [data-theme="dark"] {
-  --bg:                 #111010;
-  --text:               #f0ede8;
-  --selector-bg:        #2a2826;
-  --btn-color:          #6a6460;
-  --btn-hover-color:    #c0b8b0;
-  --btn-active-bg:      #3a3836;
-  --btn-active-color:   #f0ede8;
-  --btn-active-shadow:  0 1px 3px rgba(0, 0, 0, 0.4);
+  --bg:                #111010;
+  --text:              #f0ede8;
+  --selector-bg:       #2a2826;
+  --btn-color:         #6a6460;
+  --btn-hover-color:   #c0b8b0;
+  --btn-active-bg:     #3a3836;
+  --btn-active-color:  #f0ede8;
+  --btn-active-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 [data-theme="dark"] .theme-btn img {
@@ -32,7 +32,29 @@ body {
   transition: background 0.2s, color 0.2s;
 }
 
-/* ── Selector ── */
+/* ── Topbar ── */
+.topbar {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ── Visor fecha y hora ── */
+.datetime {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 15px;
+  color: var(--text);
+  background: var(--selector-bg);
+  padding: 7px 12px;
+  border-radius: 8px;
+}
+
+/* ── Selector de tema ── */
 .theme-selector {
   display: inline-flex;
   gap: 2px;
@@ -43,13 +65,15 @@ body {
 
 /* ── Botones ── */
 .theme-btn {
-  padding: 6px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 28px;
   border: none;
   border-radius: 6px;
   background: transparent;
   color: var(--btn-color);
-  font-size: 13px;
-  font-weight: 500;
   cursor: pointer;
   transition: background 0.15s, color 0.15s, box-shadow 0.15s;
 }
@@ -62,4 +86,12 @@ body {
   background: var(--btn-active-bg);
   color: var(--btn-active-color);
   box-shadow: var(--btn-active-shadow);
+}
+
+.datetime,
+.theme-selector {
+  padding: 3px;
+  height: 34px;
+  display: flex;
+  align-items: center;
 }
