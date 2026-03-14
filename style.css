@@ -1,0 +1,65 @@
+/* ── Variables ── */
+:root {
+  --bg:                 #ffffff;
+  --text:               #111111;
+  --selector-bg:        #e8e8e8;
+  --btn-color:          #888;
+  --btn-hover-color:    #333;
+  --btn-active-bg:      #ffffff;
+  --btn-active-color:   #111;
+  --btn-active-shadow:  0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="dark"] {
+  --bg:                 #111010;
+  --text:               #f0ede8;
+  --selector-bg:        #2a2826;
+  --btn-color:          #6a6460;
+  --btn-hover-color:    #c0b8b0;
+  --btn-active-bg:      #3a3836;
+  --btn-active-color:   #f0ede8;
+  --btn-active-shadow:  0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .theme-btn img {
+  filter: invert(1);
+}
+
+/* ── Página ── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.2s, color 0.2s;
+}
+
+/* ── Selector ── */
+.theme-selector {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  background: var(--selector-bg);
+  border-radius: 8px;
+}
+
+/* ── Botones ── */
+.theme-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--btn-color);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.theme-btn:hover {
+  color: var(--btn-hover-color);
+}
+
+.theme-btn.active {
+  background: var(--btn-active-bg);
+  color: var(--btn-active-color);
+  box-shadow: var(--btn-active-shadow);
+}
