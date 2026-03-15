@@ -1,111 +1,52 @@
 /* ── Variables ── */
 :root {
-  --bg:                #ffffff;
-  --text:              #111111;
-  --selector-bg:       #e8e8e8;
-  --btn-color:         #888;
-  --btn-hover-color:   #333;
-  --btn-active-bg:     #ffffff;
-  --btn-active-color:  #111;
-  --btn-active-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --bg:          #ffffff;
+  --text:        #ffffff;
+  --selector-bg: #e8e8e8;
 }
 
-[data-theme="dark"] {
-  --bg:                #111010;
-  --text:              #f0ede8;
-  --selector-bg:       #2a2826;
-  --btn-color:         #6a6460;
-  --btn-hover-color:   #c0b8b0;
-  --btn-active-bg:     #3a3836;
-  --btn-active-color:  #f0ede8;
-  --btn-active-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+/* ── Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-[data-theme="dark"] .theme-btn img {
-  filter: invert(1)
-  brightness(2);
-}
-
-/* ── Página ── */
 body {
-  background: var(--bg);
   color: var(--text);
-  transition: background 0.2s, color 0.2s;
-}
-
-/* ── Visor fecha y hora ── */
-.datetime {
+  background-image: url('Background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100vh;
   display: flex;
-  gap: 0.5rem;
-  font-size: 15px;
-  color: var(--text);
-  background: var(--selector-bg);
-  padding: 7px 12px;
-  border-radius: 8px;
+  flex-direction: column;
 }
 
-/* ── Selector de tema ── */
-.theme-selector {
-  display: inline-flex;
-  gap: 2px;
-  padding: 3px;
-  background: var(--selector-bg);
-  border-radius: 8px;
+main {
+  flex: 1;
+  padding-top: 80px;
+  position: relative;
+  z-index: 1;
 }
 
-/* ── Botones ── */
-.theme-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  border: none;
-  border-radius: 6px;
-  background: transparent;
-  color: var(--btn-color);
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+nav, footer {
+  position: relative;
+  z-index: 1;
 }
 
-.theme-btn:hover {
-  color: var(--btn-hover-color);
-}
-
-.theme-btn.active {
-  background: var(--btn-active-bg);
-  color: var(--btn-active-color);
-  box-shadow: var(--btn-active-shadow);
-}
-
-.datetime,
-.theme-selector {
-  padding: 3px;
-  display: flex;
-  align-items: center;
-}
-
-.datetime,
-.theme-selector {
-  padding: 3px 10px;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  background: var(--selector-bg);
-  border-radius: 8px;
-}
-
+/* ── Navbar ── */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 56px;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  background: var(--bg);
-  border-bottom: 1px solid var(--selector-bg);
   z-index: 100;
 }
 
@@ -141,7 +82,8 @@ body {
   transition: opacity 0.15s;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   opacity: 1;
 }
 
@@ -165,35 +107,22 @@ body {
   transition: transform 0.2s, opacity 0.2s;
 }
 
-/* ── Menú abierto ── */
-.navbar.open .nav-links {
-  display: flex;
-}
-
-.navbar.open .nav-hamburger span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.navbar.open .nav-hamburger span:nth-child(2) {
-  opacity: 0;
-}
-
-.navbar.open .nav-hamburger span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
+.navbar.open .nav-links { display: flex; }
+.navbar.open .nav-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar.open .nav-hamburger span:nth-child(2) { opacity: 0; }
+.navbar.open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ── Móvil ── */
 @media (max-width: 600px) {
   .nav-links {
     display: none;
     position: fixed;
-    top: 56px;
+    top: 72px;
     left: 0;
     right: 0;
     flex-direction: column;
     gap: 0;
     background: var(--bg);
-    border-bottom: 1px solid var(--selector-bg);
     padding: 0.5rem 0;
   }
 
@@ -206,3 +135,53 @@ body {
     display: flex;
   }
 }
+
+/* ── Footer ── */
+.footer {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-links a,
+.footer-social a {
+  color: var(--text);
+  opacity: 0.5;
+  text-decoration: none;
+  font-size: 16px;
+  transition: opacity 0.15s;
+}
+
+.footer-links a:hover,
+.footer-social a:hover { opacity: 1; }
+
+.footer-social {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.4;
+}
+
+.footer-top {
+  text-decoration: none;
+  color: var(--text);
+  transition: opacity 0.15s;
+}
+
+.footer-top:hover { opacity: 1; }
