@@ -211,6 +211,10 @@ nav, footer {
   text-align: center;
 }
 
+.g-recaptcha {
+  margin: 1.25rem 0;
+}
+
 /* ── Footer ── */
 .footer {
   padding: 2.5rem 2rem;
